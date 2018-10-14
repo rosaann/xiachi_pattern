@@ -58,6 +58,7 @@ def genDataBase():
                         r = points[1][0]
                         t = points[0][1]
                         b = points[2][1]
+                        print("l:{},r:{},t:{},b:{}", l,r,t, b)
                         patern['img'] = img_rgb[l:r, t:b]
                         data_base.add(patern)
     
