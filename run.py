@@ -24,6 +24,7 @@ def checkDefect(imgToBeDetected, patternImg,patternLabel, threshold):
     loc = np.where( res >= threshold)
     for pt in zip(*loc[::-1]):
         cv2.rectangle(imgToBeDetected, pt, (pt[0] + w, pt[1] + h), (7,249,151), 2)
+        
     vis.images(imgToBeDetected, win=p_idx, opts={'title': patternLabel})
     p_idx += 1;
 
@@ -40,6 +41,7 @@ def genDataBase():
     data_base = []
     for subPatternDir in base_database_dir1:
         subDir = base_database_dir1 + subPatternDir
+        print('subDir : {}'.format(subDir))
         for file in os.listdir(subDir):
             if file.find(".json"):
                 json_data = json.load(open(file))
@@ -61,6 +63,7 @@ def genDataBase():
 vis = visdom.Visdom(server="http://localhost", port="8888")
 baseValidDir = "/guangdong_round1_train2_20180916/瑕疵样本/"
 data_base = genDataBase()
+print('data_base_len : {}'.format(len(data_base)))
 p_idx = 0;
 for i_1, subPattern in enumerate( os.listdir(baseValidDir) ):
     if i_1 == 0:
