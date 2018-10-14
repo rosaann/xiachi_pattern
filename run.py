@@ -60,7 +60,7 @@ def genDataBase():
                         b = points[2][1]
                         print("l:{},r:{},t:{},b:{}".format(l,r,t, b))
                      #   patern['img'] = img_rgb[l:r, t:b]
-                        timg = img_rgb[int(t):int(b),int(l):int(r)]
+                        timg = img_rgb[3:5,4:8]
                         vis.images(imgToBeDetected, win=p_idx, opts={'title': "t"})
                         p_idx += 1
                         data_base.add(patern)
