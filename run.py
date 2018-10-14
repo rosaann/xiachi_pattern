@@ -63,7 +63,7 @@ def genDataBase():
                         print("l:{},r:{},t:{},b:{}".format(l,r,t, b))
                         patern['img'] = img_rgb[ t:b, l:r]
                     
-                        data_base.add(patern)
+                        data_base.append(patern)
     
     return data_base
 vis = visdom.Visdom(server="http://localhost", port="8888")
