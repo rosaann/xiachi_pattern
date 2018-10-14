@@ -45,7 +45,8 @@ def genDataBase():
     #    continue
         for file in os.listdir(subDir):
             if file.find(".json"):
-                json_data = json.load(open(file))
+                filePath = subDir + '/' + file
+                json_data = json.load(open(filePath))
                 img_rgb = base64.b64decode(json_data['imageData'])
                 shapes = json_data['shapes']          
                 for shape in shapes:
