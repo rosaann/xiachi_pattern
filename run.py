@@ -48,7 +48,8 @@ def genDataBase():
                 filePath = subDir + '/' + file
                 json_data = json.load(open(filePath))
                 img_rgb = base64.b64decode(json_data['imageData'])
-                img_rgb = cv2.imread(img_rgb)
+                img_array = np.fromstring(img_rgb,np.uint8) # 转换np序列
+                img_rgb=cv2.imdecode(img_array,cv2.COLOR_BGR2RGB)
                 shapes = json_data['shapes']          
                 for shape in shapes:
                     patern = {}
