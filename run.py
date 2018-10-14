@@ -62,7 +62,7 @@ def genDataBase():
                      #   patern['img'] = img_rgb[l:r, t:b]
                         timg = img_rgb[l:r,t:b]
                         vis.images(imgToBeDetected, win=p_idx, opts={'title': "t"})
-    p_idx += 1;
+                        p_idx += 1
                         data_base.add(patern)
     
     return data_base
