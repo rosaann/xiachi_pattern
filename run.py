@@ -39,10 +39,10 @@ def check(imgDir):
 def genDataBase():
     base_database_dir1 = "guangdong_round2_train_20181011/单瑕疵图片/"
     data_base = []
-    for subPatternDir in base_database_dir1:
+    for subPatternDir in os.listdir( base_database_dir1):
         subDir = base_database_dir1 + subPatternDir
         print('subDir : {}'.format(subDir))
-        continue
+    #    continue
         for file in os.listdir(subDir):
             if file.find(".json"):
                 json_data = json.load(open(file))
