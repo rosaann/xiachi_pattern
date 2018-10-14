@@ -48,6 +48,7 @@ def genDataBase():
                 filePath = subDir + '/' + file
                 json_data = json.load(open(filePath))
                 img_rgb = base64.b64decode(json_data['imageData'])
+                img_rgb = cv2.imread(img_rgb)
                 shapes = json_data['shapes']          
                 for shape in shapes:
                     patern = {}
@@ -59,9 +60,9 @@ def genDataBase():
                         t = points[0][1]
                         b = points[2][1]
                         print("l:{},r:{},t:{},b:{}".format(l,r,t, b))
-                     #   patern['img'] = img_rgb[l:r, t:b]
-                        timg = img_rgb[3:5,4:8]
-                        vis.images(imgToBeDetected, win=p_idx, opts={'title': "t"})
+                        patern['img'] = img_rgb[ t:b, l:r]
+                     #   timg = img_rgb[3:5,4:8]
+                    #    vis.images(imgToBeDetected, win=p_idx, opts={'title': "t"})
                         p_idx += 1
                         data_base.add(patern)
     
