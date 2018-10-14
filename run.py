@@ -42,6 +42,7 @@ def genDataBase():
     for subPatternDir in base_database_dir1:
         subDir = base_database_dir1 + subPatternDir
         print('subDir : {}'.format(subDir))
+        continue
         for file in os.listdir(subDir):
             if file.find(".json"):
                 json_data = json.load(open(file))
